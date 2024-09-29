@@ -1,14 +1,14 @@
 <template>
-  <div class="min-w-full min-h-screen h-screen overflow-hidden bg-blue-100">
-    <Header />
+  <div class="min-h-screen bg-blue-100">
+    <app-header />
 
-    <div class="flex mt-3 mx-4 justify-center space-x-4 min-w-full">
+    <div class="grid grid-cols-4 mt-3 mx-4 space-x-4">
       <div
         v-for="column in columns"
         :key="column.title"
-        class="flex flex-col min-w-[300px] min-h-[300px] relative bg-gray-100  p-4 shadow overflow-hidden rounded-lg"
+        class="flex flex-col bg-gray-100 p-4 shadow"
       >
-        <h4 class=" p-3 flex justify-between items-center mb-2">
+        <h4 class="flex justify-between items-center mb-2 p-3">
           <span class="text-2xl text-gray-600">
             {{ column.title }}
           </span>
@@ -44,7 +44,6 @@
           @click="addTask(column)"
         >
           <span>Add task</span>
-
           <font-awesome-icon
             icon="fa-solid fa-plus"
             className="w-5 h-5 text-gray-500"
@@ -57,8 +56,9 @@
 
 <script>
 import { VueDraggableNext } from 'vue-draggable-next';
-import Header from "./components/header.vue";
-import TaskCard from "./components/TaskCard.vue";
+
+import AppHeader from './components/AppHeader.vue';
+import TaskCard from './components/TaskCard.vue';
 
 export default {
   name: "App",
@@ -69,7 +69,7 @@ export default {
 
   components: {
     TaskCard,
-    Header,
+    AppHeader,
     draggable : VueDraggableNext
   },
 
@@ -77,55 +77,55 @@ export default {
     return {
       columns: [
         {
-          title: "Backlog",
+          title: 'Список задач',
           tasks: [
             {
               id: 654654,
-              title: "Add discount code to checkout page",
-              date: "2023-06-22",
-              type: "Feature Request",
-              url:"https://randomuser.me/api/portraits/men/75.jpg"
+              title: 'Добавить код скидки на страницу оформления заказа',
+              date: '2023-06-22',
+              url: 'https://randomuser.me/api/portraits/men/75.jpg'
             },
             {
               id: 145687,
-              title: "Provide documentation on integrations",
-              date: "2023-07-53",
-              url:"https://randomuser.me/api/portraits/men/76.jpg"
+              title: 'Предоставить документацию по интеграции',
+              date: '2023-07-53',
+              url: 'https://randomuser.me/api/portraits/men/76.jpg'
             }
           ]
         },
+
         {
-          title: "In Progress",
+          title: 'В работе',
           tasks: [
             {
               id: 646545,
-              title: "Design shopping cart dropdown",
-              date: "2023-01-25",
-              type: "Design",
-              url:"https://randomuser.me/api/portraits/men/76.jpg"
+              title: 'Дизайн выпадающего меню корзины покупок',
+              date: '2023-01-25',
+              url: 'https://randomuser.me/api/portraits/men/76.jpg'
             }
           ]
         },
+
         {
-          title: "Review",
+          title: 'Проверка',
           tasks: [
             {
               id: 956746,
-              title: "Provide documentation on integrations",
-              date: "2023-06-18",
-              url:"https://randomuser.me/api/portraits/men/75.jpg"
+              title: 'Предоставить документацию по интеграции',
+              date: '2023-06-18',
+              url: 'https://randomuser.me/api/portraits/men/75.jpg'
             },
           ]
         },
+
         {
-          title: "Done",
+          title: 'Сделано',
           tasks: [
             {
               id: 456546,
-              title: "Add discount code to checkout page",
-              date: "2023-06-27",
-              type: "Feature Request",
-              url:"https://randomuser.me/api/portraits/men/78.jpg"
+              title: 'Добавить код скидки на страницу оформления заказа',
+              date: '2023-06-27',
+              url: 'https://randomuser.me/api/portraits/men/78.jpg'
             },
           ]
         }
